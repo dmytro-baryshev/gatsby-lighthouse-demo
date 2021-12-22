@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "./lol.json";
 
 
 export default function Home() {
@@ -12,7 +13,6 @@ export default function Home() {
       fetch('https://jsonplaceholder.typicode.com/posts')
         .then((response) => response.json())
         .then((json) => {
-          console.log(json)
           setPosts(json);
           setLoading(false);
         });
@@ -33,6 +33,7 @@ export default function Home() {
       <h2>{post.title}</h2>
       <p>{post.body}</p>
       <h4>By user №{post.userId}</h4>
+      <button onClick={() => console.log(post)}>read more</button>
     </div>
   ))}</div>
 }
